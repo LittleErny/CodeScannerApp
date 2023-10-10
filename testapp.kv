@@ -1,0 +1,110 @@
+<ScreenManager>:
+    id: screen_manager
+
+    # First Screen
+    Screen:
+        name: 'first_screen'
+        id: first_screen
+
+        StackLayout:
+
+            # Navigation buttons at the top
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: 1, None
+                height: '48dp'
+                padding: 10
+
+                Button:
+                    text: 'To Scanning Page'
+                    on_release: root.current = 'second_screen'
+
+                Button:
+                    text: 'Edit'
+                    # Add functionality for the 'Edit' button here
+
+            # List of buttons A to I
+            GridLayout:
+                cols: 3
+                spacing: 9
+                padding: 9
+
+                Button:
+                    text: root.models[0]
+                    on_release: root.updateCurrentModel(0)
+
+                Button:
+                    text: root.models[1]
+                    on_release: root.updateCurrentModel(1)
+
+                Button:
+                    text: root.models[2]
+                    on_release: root.updateCurrentModel(2)
+
+                Button:
+                    text: root.models[3]
+                    on_release: root.updateCurrentModel(3)
+
+                Button:
+                    text: root.models[4]
+                    on_release: root.updateCurrentModel(4)
+
+                Button:
+                    text: root.models[5]
+                    on_release: root.updateCurrentModel(5)
+
+                Button:
+                    text: root.models[6]
+                    on_release: root.updateCurrentModel(6)
+
+                Button:
+                    text: root.models[7]
+                    on_release: root.updateCurrentModel(7)
+
+                Button:
+                    text: root.models[8]
+                    on_release: root.updateCurrentModel(8)
+
+
+    # Second Screen
+    Screen:
+        name: 'second_screen'
+        id: second_screen
+
+        StackLayout:
+            id: StackLayout2
+
+            # Navigation button at the top
+            BoxLayout:
+                id: BoxLayout2
+                orientation: 'horizontal'
+                size_hint: 1, None
+                height: '48dp'
+                padding: 10
+
+                Button:
+                    text: 'To Choosing Page'
+                    on_release: root.current = 'first_screen'
+
+            # Text fields with submit button
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 10
+
+                Label:
+                    id: current_choice
+                    text: "Please, choose the model"
+                    font_size: 16
+
+
+                TextInput:
+                    id: qr_input
+                    hint_text: 'Enter QR here'
+
+                TextInput:
+                    id: barcode_input
+                    hint_text: 'Enter barcode here'
+
+                Button:
+                    text: 'Submit'
+                    on_release: root.submitCode()
